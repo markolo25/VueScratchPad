@@ -9,26 +9,27 @@
 </head>
 <body>
     <div id="app">
-        {{ message }} <br>
-        {{ messages }} <br>
+        <p>{{ message }} </p>
+        <p>{{ messages }} </p>
         
         <!--Bind for hover text-->
         <span v-bind:title="chicken">hover over me to get message is chicken variable</span><br>
         
         <!--Bind for set visible if logic is true-->
         <span v-if="visible">It must be true if you can see this</span><br>
-        <span v-if="invisible">It must be false if you can't see this</span><br>
+        <span v-if="invisible">It must be false if you can't see this</span></br>
         
         <!--Bind for iterate over array and display each entry REAL USEFUL PLS NOTE MARK NEED FOR BIG PROJECT-->
         <ol>
             <li v-for="num in x">{{num}}</span>
-            </ol>
-            <ol>
-                <!--for each struct args so , for reference to each item in todos to todo and print each todo as an li-->
-                <li v-for="todo in todos">{{todo}}</li> 
-            </ol>
+        </ol>
+        <ol>
+            <!--for each struct args so , for reference to each item in todos to todo and print each todo as an li-->
+            <li v-for="todo in todos">{{todo}}</li> 
+        </ol>
             
-            
+            <!--Bind for calling a function-->
+            <button v-on:click="reverseMessage">REEEEEEEEEEEEEVERSE</button>
             
             
             
@@ -50,6 +51,13 @@
                 { text: 'Learn Vue' },
                 { text: 'Build something awesome' }
                 ]
+            },
+            methods:{
+                reverseMessage: function() {
+                    this.todos.forEach(element => {
+                        element.text = element.text.split('').reverse().join('')
+                    });
+                }
             }
         })
     </script>
