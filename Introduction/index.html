@@ -5,25 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
     <div id="app">
         {{ message }} <br>
         {{ messages }} <br>
-        <span v-bind:title="chicken">hover over me to get message is chicken variable</span>
+
+        <!--Bind for hover text-->
+        <span v-bind:title="chicken">hover over me to get message is chicken variable</span><br>
+
+        <!--Bind for set visible if logic is true-->
+        <span v-if="visible">It must be true if you can see this</span><br>
+        <span v-if="invisible">It must be false if you can't see this</span><br>
+
+        <!--Bind for iterate over array and display each entry REAL USEFUL PLS NOTE MARK NEED FOR BIG PROJECT-->
+        <ol>
+            <li v-for="num in x">{{num}}</span>
+        </ol>
+        <ol>
+            <!--for each struct args so , for reference to each item in todos to todo and print each todo as an li-->
+           <li v-for="todo in todos">{{todo}}</li> 
+        </ol>
+
+
+
     </div>
 </body>
 
 <script>
-    var x = [1,2,3,4];
     var app = new Vue({
         el: '#app',
         data: {
+            x: [1,2,3,4],
             message: "Hello Vue",
             messages: "FUUUUU",
-            chicken: "BAWK!"
+            chicken: "BAWK! oh yea the time is " + new Date().toLocaleDateString(),
+            visible:true,
+            invisible:false,
+            todos: [
+      { text: 'Learn JavaScript' },
+      { text: 'Learn Vue' },
+      { text: 'Build something awesome' }
+    ]
         }
     })
 </script>
