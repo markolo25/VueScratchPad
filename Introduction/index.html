@@ -31,7 +31,9 @@
             <!--Bind for calling a function-->
             <button v-on:click="reverseMessage">REEEEEEEEEEEEEVERSE</button>
             
-            
+            <p>{{userin}}</p>
+            <input v-model="userin"/><br>
+            <button v-on:click="reverseUserIn">REEEE</button>
             
         </div>
     </body>
@@ -48,15 +50,19 @@
                 invisible:false,
                 todos: [
                 { text: 'Learn JavaScript' },
-                { text: 'Learn Vue' },
-                { text: 'Build something awesome' }
-                ]
+                { text: 'Learn Vue' },REEEEEEEEEEEEEVERSE
+                { text: 'Build something awesome' }],
+                userin: "Change me"
             },
             methods:{
                 reverseMessage: function() {
                     this.todos.forEach(element => {
                         element.text = element.text.split('').reverse().join('')
                     });
+                },
+
+                reverseUserIn: function(){
+                    this.userin = this.userin.split('').reverse().join('')
                 }
             }
         })
